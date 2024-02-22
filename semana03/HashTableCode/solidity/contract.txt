@@ -1,0 +1,21 @@
+// SPDX-License-Identifier: GPL-3.0
+
+pragma solidity >=0.8.2 <0.9.0;
+
+contract Storage {
+
+    mapping(uint => string) Item;
+
+    function getItem(uint _id) public view returns (string memory) {
+        string memory product = Item[_id];
+        return product;
+    }
+
+    function addItem(uint _id, string memory _product) public {
+         Item[_id] = _product;
+    }
+
+    function deleteItem(uint _id) public {
+        delete Item[_id];
+    }
+}
